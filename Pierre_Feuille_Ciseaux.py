@@ -1,5 +1,4 @@
 #coding: UTF-8
-from math import fabs
 from random import choice, random
 
 # liste de coups
@@ -21,7 +20,7 @@ def coup_CPU():
 def coup_joueur():
     Joueur = input("Votre tour : ")
     for i, nom in enumerate(coups):
-        if Joueur in [i + 1, nom[0], nom]:
+        if Joueur in [str(i + 1), nom[0], nom]:
             return nom
     return False
 
