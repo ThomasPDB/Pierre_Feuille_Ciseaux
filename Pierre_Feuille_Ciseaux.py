@@ -1,5 +1,5 @@
 #coding: UTF-8
-from random import choice, random
+from random import choice
 
 # liste de coups
 coups = ["pierre", "feuille", "ciseaux"]
@@ -37,26 +37,26 @@ def comp(a, b):
         print("Egalité")
     elif a == "pierre":
         if b == "feuille":
-            print(f"{joueur} à gagne")
+            print(f"{joueur} gagne")
             score_joueur += 1
         elif b == "ciseaux":
-            print(f"{cpu} à gagné")
+            print(f"{cpu} gagne")
             score_cpu += 1
 
     elif a == "feuille":
         if b == "pierre":
-            print(f"{cpu} à gagné")
+            print(f"{cpu} gagne")
             score_cpu += 1
         elif b == "ciseaux":
-            print(f"{joueur} à gagné")
+            print(f"{joueur} gagne")
             score_joueur += 1
 
     elif a == "ciseaux":
         if b == "pierre":
-            print(f"{joueur} à gagné")
+            print(f"{joueur} gagne")
             score_joueur += 1
         elif b == "feuille":
-            print(f"{cpu} à gagné")
+            print(f"{cpu} gagne")
             score_cpu += 1
 
 
@@ -79,7 +79,15 @@ while lancement:
         continue
     print(f"Vous avez joué {JOUEUR} \nl'ordi à joué {CPU}")
     comp(CPU, JOUEUR)
-    print(f"ordi = {score_cpu} point")
-    print(f"joueur = {score_joueur} point")
-    if score_joueur >= 5 or score_cpu >= 5:
+    
+# score
+    print(f"- ordi = {score_cpu} point")
+    print(f"- joueur = {score_joueur} point")
+
+# message victoire
+    if score_joueur >= 5:
+        print(f"Victoire de {joueur}")
+        lancement = False
+    elif score_cpu >= 5:
+        print(f"Victoire de {cpu}")
         lancement = False
